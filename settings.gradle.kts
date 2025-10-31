@@ -20,5 +20,10 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "OpenWeatherTest"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+includeBuild("buildSystem")
 include(":app")
- 
+include(":data")
+include(":domain")
+include(":ui")
+include(":core")
