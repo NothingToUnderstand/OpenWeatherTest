@@ -19,7 +19,14 @@ composeBom = "2024.09.00"
 appcompat = "1.7.1"
 material = "1.10.0"
 jetbrainsKotlinJvm = "2.0.21"
-
+coil = "2.6.0"
+retrofit = "3.0.0"
+okhttp = "4.12.0"
+koin = "3.5.6"
+navigation = "2.7.7"
+lifecycle = "2.8.3"
+kotlinxSerializationPlugin = "1.9.0"
+serializationJson = "1.9.0"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
@@ -40,9 +47,32 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
+# Coil
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+# Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJson" }
+
+# Koin
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-compose-nav = { module = "io.insert-koin:koin-androidx-compose-navigation", version.ref = "koin" }
+
+# Jetpack Navigation
+navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+
+# Runtime
+lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+
 # Plugins for build system
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+serializationPlugin = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlinxSerializationPlugin" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -51,3 +81,7 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 java-library = { id = "java-library" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxSerializationPlugin" }
+
+[bundles]
+retrofit = ["retrofit", "retrofit-converter-kotlinx-serialization", "okhttp", "okhttp-logging-interceptor"]

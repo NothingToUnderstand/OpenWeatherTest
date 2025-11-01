@@ -38,5 +38,7 @@ gradlePlugin {
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.serializationPlugin)
+    //Needed for gradle accessors to work properly
     compileOnly(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }

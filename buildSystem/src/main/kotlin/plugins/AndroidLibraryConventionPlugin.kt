@@ -14,6 +14,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(project: Project) = with(project) {
         pluginManager.apply(libs.plugins.android.library.get().pluginId)
         pluginManager.apply(libs.plugins.kotlin.android.get().pluginId)
+        pluginManager.apply(libs.plugins.kotlinx.serialization.get().pluginId)
 
         extensions.configure<LibraryExtension> {
             configureKotlinAndroid(project)
@@ -21,6 +22,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
         dependencies {
             implementation(libs.androidx.core.ktx)
+            implementation(libs.bundles.retrofit)
+            implementation(libs.koin.core)
         }
     }
 }
